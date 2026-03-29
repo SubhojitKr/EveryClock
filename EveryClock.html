@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveryClock</title>
+    <link rel="stylesheet" href="EveryClock.css">
+    <script src="EveryClock.js"></script>
+</head>
+
+<body>
+<header class="site-header">
+    <div class="site-header-container">
+        <div class="logo">EveryClock</div>
+        <div class="right-section">
+            <div class="search-container desktop-search-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+                <input type="text" id="search-bar-desktop" class="search-input" placeholder="Search...">
+                <button id="clear-search-btn-desktop" class="clear-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.293 12.879-1.414 1.414L12 13.414l-2.879 2.879-1.414-1.414L10.586 12 7.707 9.121l1.414-1.414L12 10.586l2.879-2.879 1.414 1.414L13.414 12l2.879 2.879z"></path></svg>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <a class="display-settings-btn">Display Settings</a>
+                <a href="#">About</a>
+            </nav>
+            <div class="user-icon">SM</div>
+            <button class="menu-button" id="menuBtn">☰</button>
+        </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a class="display-settings-btn">Display Settings</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<div class="mobile-search-container">
+    <div class="search-container">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+        <input type="text" id="search-bar-mobile" class="search-input" placeholder="Search locations...">
+        <button id="clear-search-btn-mobile" class="clear-search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.293 12.879-1.414 1.414L12 13.414l-2.879 2.879-1.414-1.414L10.586 12 7.707 9.121l1.414-1.414L12 10.586l2.879-2.879 1.414 1.414L13.414 12l2.879 2.879z"></path></svg>
+        </button>
+    </div>
+</div>
+
+<div class="main-body-container">
+    <header class="tab-header">
+        <nav class="continent-tabs">
+            <a href="#">Africa</a>
+            <a href="#">Antarctica</a>
+            <a href="#">Asia</a>
+            <a href="#">Australia</a>
+            <a href="#">Europe</a>
+            <a href="#">North America</a>
+            <a href="#">South America</a>
+        </nav>
+        <div class="continent-dropdown">
+            <span class="dropdown-label">Continent: </span>
+            <span class="selected-continent">Asia</span>
+            <div class="dropdown-menu">
+                <a href="#">Africa</a>
+                <a href="#">Antarctica</a>
+                <a href="#">Asia</a>
+                <a href="#">Australia</a>
+                <a href="#">Europe</a>
+                <a href="#">North America</a>
+                <a href="#">South America</a>
+            </div>
+        </div>
+        <div class="country-count" id="country-count"></div>
+    </header>
+    <main class="card-grid-body" id="card-grid"></main>
+</div>
+
+<div class="overlay" id="mobileMenuOverlay">
+    <div class="overlay-container mobile-menu-container">
+        <button class="go-back-btn" id="closeMenuBtn">&times;</button>
+        <a class="display-settings-btn mobile-nav-link">Display Settings</a>
+        <a href="#" class="mobile-nav-link">About</a>
+    </div>
+</div>
+
+<!-- SETTINGS OVERLAY -->
+<div class="overlay" id="settingsOverlay">
+    <div class="overlay-container settings-container">
+        <button class="go-back-btn" id="closeSettingsBtn">&times;</button>
+        <div class="settings-preview">
+            <div class="time_card" id="preview-card"><div class="card_top"><div class="time_container"><div class="time">09:52:00</div><div class="meridiem_time">am</div></div><div class="date">Wed, 15 Aug</div><div class="difference">Your Timezone</div></div><div class="card_bottom"><div class="location">Preview Card</div></div></div>
+        </div>
+        <div class="settings-options">
+            <h2>Display Settings</h2>
+            <div class="setting-item">
+                <label for="showSeconds">Show Seconds</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="showSeconds" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label for="showDate">Show Date</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="showDate" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label for="meridiem">Time Format (12-hr)</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="meridiem" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
